@@ -114,7 +114,7 @@ class NeuroVectorizerEnv(gym.Env):
                                  [spaces.Box(0,self.code2vec.vocabs.token_vocab.size,shape=(self.config.MAX_CONTEXTS,),dtype = np.int32,)]
                                  +[spaces.Box(0,self.code2vec.vocabs.path_vocab.size,shape=(self.config.MAX_CONTEXTS,),dtype = np.int32,)]
                                  +[spaces.Box(0,self.code2vec.vocabs.token_vocab.size,shape=(self.config.MAX_CONTEXTS,),dtype = np.int32,)]
-                                 +[spaces.Box(0,1,shape=(self.config.MAX_CONTEXTS,),dtype = np.bool)]
+                                 +[spaces.Box(0,1,shape=(self.config.MAX_CONTEXTS,),dtype = np.float32)]
                                  )
     def parse_train_data(self):
         ''' Parse the training data. '''
