@@ -126,7 +126,7 @@ class NeuroVectorizerEnv(gym.Env):
         # copy testfiles
         self.new_testfiles = list(self.orig_train_files)
         # parse the code to detect loops and inject commented pragmas.  
-        self.loops_idxs_in_orig,self.pragmas_idxs,self.const_new_codes,self.num_loops,self.const_orig_codes \
+        self.loops_idxs_in_orig, self.pragmas_idxs, self.const_new_codes, self.num_loops, self.const_orig_codes \
         = get_vectorized_codes(self.orig_train_files,self.new_testfiles)
         # to operate only on files that have for loops.
         self.new_testfiles = list(self.pragmas_idxs.keys())
@@ -221,13 +221,24 @@ class NeuroVectorizerEnv(gym.Env):
         loop_file=open(input_full_path_filename,'w')
         loop_file.write(''.join(code))
         loop_file.close()
+
+        ### VVV This is all we need to change VVV 
+        ## this is where Code => AST
         try:
+            # print(train_lines)
             train_lines, hash_to_string_dict = self.path_extractor.extract_paths(input_full_path_filename)
         except:
             print('Could not parse file',current_filename, 'loop index',current_pragma_idx,'. Try removing it.')
             raise 
+
+        ## This is where AST => Vectors
         dataset  = self.train_input_reader.process_and_iterate_input_from_data_lines(train_lines)
+
+        ### ^^^ This is all we need to change ^^^ 
+
         obs = []
+
+        ## Make tensors out of numpy arrays
         tensors = list(dataset)[0][0]
         import tensorflow as tf
         for tensor in tensors:
@@ -237,6 +248,8 @@ class NeuroVectorizerEnv(gym.Env):
 
         if current_filename not in self.obs_encodings:
             self.obs_encodings[current_filename] = {}
+
+        ## Add mapping to known embeddings
         self.obs_encodings[current_filename][current_pragma_idx] = obs
         return obs
 
