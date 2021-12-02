@@ -205,10 +205,10 @@ class NeuroVectorizerEnv(gym.Env):
            Change this if you want other embeddings.'''
         
         #Check if this encoding already exists (parsed before).
-        try:
-            return self.obs_encodings[current_filename][current_pragma_idx]
-        except:
-            pass
+        # try:
+        #     return self.obs_encodings[current_filename][current_pragma_idx]
+        # except:
+        #     pass
         
         # To get code for files not in the dataset.
         if self.new_train_data:
@@ -218,28 +218,55 @@ class NeuroVectorizerEnv(gym.Env):
             code=get_snapshot_from_code(self.const_orig_codes[current_filename])
 
         input_full_path_filename=os.path.join(self.new_rundir,'aux_AST_embedding_code.c')
+
         loop_file=open(input_full_path_filename,'w')
         loop_file.write(''.join(code))
         loop_file.close()
 
         ### VVV This is all we need to change VVV 
-        ## this is where Code => AST
-        try:
-            # print(train_lines)
-            train_lines, hash_to_string_dict = self.path_extractor.extract_paths(input_full_path_filename)
-        except:
-            print('Could not parse file',current_filename, 'loop index',current_pragma_idx,'. Try removing it.')
-            raise 
 
-        ## This is where AST => Vectors
-        dataset  = self.train_input_reader.process_and_iterate_input_from_data_lines(train_lines)
+        # 1. run clang to get LLVM IR
+        llvm_ir_full_path_filename = os.path.join(self.new_rundir,'aux_AST_embedding_code.ll')
+        cmd = f'clang -S -emit-llvm -c {input_full_path_filename} -o {llvm_ir_full_path_filename}'
+
+        print(cmd)
+        os.system(cmd)
+
+        # 2. run IR2Vec on LLVM IR 
+        # ./ir2vec -sym -vocab ../../vocabulary/seedEmbeddingVocab-300-llvm12.txt  -o aux.ir2vec -level p aux.ll
+        ir2vecPath = ''
+        ir2vecVocabPath = ''
+        ir2vec_output_full_path_filename = os.path.join(self.new_rundir,'auxembed.ir2vec')
+        cmd = f'{ir2vecPath} -sym -vocab {ir2vecVocabPath}  -o {ir2vec_output_full_path_filename} -level p {llvm_ir_full_path_filename}'
+
+        print(cmd)
+        os.system(cmd)
+
+        # 3. Open and read in vector
+        vector_file = open(ir2vec_output_full_path_filename,'r')
+        lines = vector_file.readlines()
+        vector = np.array([float(num) for num in lines[0].split('\t')[:-1]])
+        print(vector)
+
+        ## this is where Code => AST
+        # try:
+        #     # print(train_lines)
+        #     train_lines, hash_to_string_dict = self.path_extractor.extract_paths(input_full_path_filename)
+        # except:
+        #     print('Could not parse file',current_filename, 'loop index',current_pragma_idx,'. Try removing it.')
+        #     raise 
+
+        # ## This is where AST => Vectors
+        # dataset  = self.train_input_reader.process_and_iterate_input_from_data_lines(train_lines)
 
         ### ^^^ This is all we need to change ^^^ 
 
         obs = []
 
         ## Make tensors out of numpy arrays
-        tensors = list(dataset)[0][0]
+        # tensors = list(dataset)[0][0]
+
+        tensors = vector
         import tensorflow as tf
         for tensor in tensors:
             with tf.compat.v1.Session() as sess: 
@@ -278,7 +305,8 @@ class NeuroVectorizerEnv(gym.Env):
                     exit(0) # finished all programs!
             '''Change next line for new observation spaces
             to a matrix of zeros.'''
-            obs = [[0]*200]*4
+            # obs = [[0]*200]*4
+            obs = [[0]*300]
         else:
             obs = self.get_obs(current_filename,self.current_pragma_idx)
         
