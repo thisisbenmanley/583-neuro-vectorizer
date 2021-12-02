@@ -110,12 +110,13 @@ class NeuroVectorizerEnv(gym.Env):
                                         spaces.Discrete(len(self.interleave_action_meaning))])
         '''The observation space is bounded by the word dictionary 
         the preprocessing generated.'''
-        self.observation_space = spaces.Tuple(
-                                 [spaces.Box(0,self.code2vec.vocabs.token_vocab.size,shape=(self.config.MAX_CONTEXTS,),dtype = np.int32,)]
-                                 +[spaces.Box(0,self.code2vec.vocabs.path_vocab.size,shape=(self.config.MAX_CONTEXTS,),dtype = np.int32,)]
-                                 +[spaces.Box(0,self.code2vec.vocabs.token_vocab.size,shape=(self.config.MAX_CONTEXTS,),dtype = np.int32,)]
-                                 +[spaces.Box(0,1,shape=(self.config.MAX_CONTEXTS,),dtype = np.bool)]
-                                 )
+        #self.observation_space = spaces.Tuple(
+        #                         [spaces.Box(0,self.code2vec.vocabs.token_vocab.size,shape=(self.config.MAX_CONTEXTS,),dtype = np.int32,)]
+        #                         +[spaces.Box(0,self.code2vec.vocabs.path_vocab.size,shape=(self.config.MAX_CONTEXTS,),dtype = np.int32,)]
+        #                         +[spaces.Box(0,self.code2vec.vocabs.token_vocab.size,shape=(self.config.MAX_CONTEXTS,),dtype = np.int32,)]
+        #                         +[spaces.Box(0,1,shape=(self.config.MAX_CONTEXTS,),dtype = np.bool)]
+        #                         )
+        self.observation_space = spaces.Box(-100,100,shape=(300,),dtype = np.float64)
     def parse_train_data(self):
         ''' Parse the training data. '''
         self.orig_train_files = [os.path.join(root, name)
@@ -234,10 +235,12 @@ class NeuroVectorizerEnv(gym.Env):
 
         # 2. run IR2Vec on LLVM IR 
         # ./ir2vec -sym -vocab ../../vocabulary/seedEmbeddingVocab-300-llvm12.txt  -o aux.ir2vec -level p aux.ll
-        ir2vecPath = ''
-        ir2vecVocabPath = ''
+        ir2vecPath = '~/583project/IR2Vec/build/bin/ir2vec'
+        ir2vecVocabPath = '~/583project/IR2Vec/vocabulary/seedEmbeddingVocab-300-llvm12.txt'
         ir2vec_output_full_path_filename = os.path.join(self.new_rundir,'auxembed.ir2vec')
+        os.system(f"rm {ir2vec_output_full_path_filename}")
         cmd = f'{ir2vecPath} -sym -vocab {ir2vecVocabPath}  -o {ir2vec_output_full_path_filename} -level p {llvm_ir_full_path_filename}'
+
 
         print(cmd)
         os.system(cmd)
