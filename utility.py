@@ -226,7 +226,7 @@ def get_O3_runtimes(rundir,files):
 
             runtime = ptimer.max_vms_memory
             print("memory usage: ", runtime)
-         except:
+        except:
             runtime = None #None if fails
             logger.warning('Could not compile ' + filename + 
                            ' due to time out. Setting runtime to: ' +
