@@ -58,8 +58,10 @@ class NeuroVectorizerEnv(gym.Env):
         self.current_pragma_idx = 0
         '''Runtimes dict to stored programs the RL agent explored.
          This saves execution and compilation time due to dynamic programming.'''
+        # self.runtimes = init_runtimes_dict(self.new_testfiles,self.num_loops,
+        #                 len(self.vec_action_meaning),len(self.interleave_action_meaning))
         self.runtimes = init_runtimes_dict(self.new_testfiles,self.num_loops,
-                        len(self.vec_action_meaning),len(self.interleave_action_meaning))
+                        len(self.unroll_action_meaning))
         '''Observations dictionary to store AST encodings of programs explored by the RL agent. 
         It saves time when the RL agent explores a program it explored before.
         It is also initialized from obs_encodings.pkl file to further save time.''' 
@@ -104,10 +106,16 @@ class NeuroVectorizerEnv(gym.Env):
         ''' Defines the reinforcement leaning environment.
         Modify to match your hardware and programs.
         '''
-        self.vec_action_meaning = [1,2,4,8,16,32,64] # TODO: change this to match your hardware
-        self.interleave_action_meaning=[1,2,4,8,16] # TODO: change this to match your hardware
-        self.action_space = spaces.Tuple([spaces.Discrete(len(self.vec_action_meaning)),
-                                        spaces.Discrete(len(self.interleave_action_meaning))])
+        # self.vec_action_meaning = [1,2,4,8,16,32,64] # TODO: change this to match your hardware
+        # self.interleave_action_meaning=[1,2,4,8,16] # TODO: change this to match your hardware
+
+        self.unroll_action_meaning = [1,2,4,8,16,32,64] # TODO: change this to match your hardware
+
+        # self.action_space = spaces.Tuple([spaces.Discrete(len(self.vec_action_meaning)),
+        #                                 spaces.Discrete(len(self.interleave_action_meaning))])
+
+        self.action_space = spaces.Tuple([spaces.Discrete(len(self.unroll_action_meaning)), spaces.Discrete(1)])
+
         '''The observation space is bounded by the word dictionary 
         the preprocessing generated.'''
         self.observation_space = spaces.Tuple(
@@ -138,7 +146,9 @@ class NeuroVectorizerEnv(gym.Env):
         self.path_extractor = CExtractor(self.config,clang_path=os.environ['CLANG_PATH'],max_leaves=MAX_LEAF_NODES)
         self.train_input_reader = self.code2vec._create_data_reader(estimator_action=EstimatorAction.Train)
     
-    def get_reward(self,new_code,current_filename,VF_idx,IF_idx):
+    # def get_reward(self,new_code,current_filename, VF_idx,IF_idx):
+    def get_reward(self,new_code,current_filename, unroll_idx):
+
         '''Calculates the RL agent's reward. The reward is the 
         execution time improvement after injecting the pragma
         normalized to -O3.'''
@@ -146,11 +156,14 @@ class NeuroVectorizerEnv(gym.Env):
         f.write(''.join(new_code))
         f.close()
         if self.compile:
-            if self.runtimes[current_filename][self.current_pragma_idx][VF_idx][IF_idx]:
-                runtime = self.runtimes[current_filename][self.current_pragma_idx][VF_idx][IF_idx]
+            # if self.runtimes[current_filename][self.current_pragma_idx][VF_idx][IF_idx]:
+            if self.runtimes[current_filename][self.current_pragma_idx][unroll_idx]:
+                # runtime = self.runtimes[current_filename][self.current_pragma_idx][VF_idx][IF_idx]
+                runtime = self.runtimes[current_filename][self.current_pragma_idx][unroll_idx]
             else:            
                 runtime = get_runtime(self.new_rundir,new_code,current_filename)
-                self.runtimes[current_filename][self.current_pragma_idx][VF_idx][IF_idx]=runtime
+                # self.runtimes[current_filename][self.current_pragma_idx][VF_idx][IF_idx]=runtime
+                self.runtimes[current_filename][self.current_pragma_idx][unroll_idx] = runtime
             if self.O3_runtimes[current_filename]==None:
                 reward = 0
                 logger.warning('Program '+current_filename+' does not compile in two seconds.'+
@@ -172,12 +185,16 @@ class NeuroVectorizerEnv(gym.Env):
                       self.O3_runtimes[current_filename], 'RL runtime: ', runtime,
                       'improvement:',str(round(improvement,2))+'X',
                       'improvement geomean so far:',str(round(geomean,2))+'X')
-            VF = self.vec_action_meaning[VF_idx]
-            IF = self.interleave_action_meaning[IF_idx]
+            # VF = self.vec_action_meaning[VF_idx]
+            # IF = self.interleave_action_meaning[IF_idx]
+            unroll = self.unroll_action_meaning[unroll_idx]
             opt_runtime_sofar=self.get_opt_runtime(current_filename,self.current_pragma_idx)
+            # logger.info(current_filename+' runtime '+str(runtime)+' O3 ' + 
+            #             str(self.O3_runtimes[current_filename]) +' reward '+str(reward)+
+            #             ' opt '+str(opt_runtime_sofar)+" VF "+str(VF)+" IF "+str(IF))
             logger.info(current_filename+' runtime '+str(runtime)+' O3 ' + 
                         str(self.O3_runtimes[current_filename]) +' reward '+str(reward)+
-                        ' opt '+str(opt_runtime_sofar)+" VF "+str(VF)+" IF "+str(IF))
+                        ' opt '+str(opt_runtime_sofar)+" Unroll "+str(unroll))
         else:
             # can't calculate the reward without compile/runtime.
             reward = 0
@@ -186,10 +203,13 @@ class NeuroVectorizerEnv(gym.Env):
 
     def get_opt_runtime(self,current_filename,current_pragma_idx):
         min_runtime = float('inf')
-        for VF_idx in self.runtimes[current_filename][self.current_pragma_idx]:
-            for IF_idx in VF_idx:
-                if IF_idx:
-                    min_runtime = min(min_runtime,IF_idx)
+        # for VF_idx in self.runtimes[current_filename][self.current_pragma_idx]:
+        #     for IF_idx in VF_idx:
+        #         if IF_idx:
+        #             min_runtime = min(min_runtime,IF_idx)
+        for unroll_idx in self.runtimes[current_filename][self.current_pragma_idx]:
+            if unroll_idx:
+                min_runtime = min(min_runtime,unroll_idx)
         return min_runtime
                 
     def reset(self):
@@ -257,14 +277,29 @@ class NeuroVectorizerEnv(gym.Env):
         '''The RL environment step function. Takes action and applies it as
         VF/IF pragma for the parsed loop.'''
         done = True # RL horizon = 1 
-        action = list(np.reshape(np.array(action),(np.array(action).shape[0],)))
-        VF_idx = action[0]
-        IF_idx = action[1]
-        VF = self.vec_action_meaning[VF_idx]
-        IF = self.interleave_action_meaning[IF_idx]
+        action = list( np.reshape( np.array(action),(np.array(action).shape[0],) )  )
+
+        # action = list(np.reshape(np.array(action)))
+
+        unroll_idx  = action[0]
+        unroll_factor = self.unroll_action_meaning[unroll_idx] # TODO: Define unroll_action_meanning
+
+        # VF_idx = action[0]
+        # IF_idx = action[1]
+        # VF = self.vec_action_meaning[VF_idx]
+        # IF = self.interleave_action_meaning[IF_idx]
+
         current_filename = self.new_testfiles[self.current_file_idx]
-        self.new_code[self.pragmas_idxs[current_filename][self.current_pragma_idx]] = pragma_line.format(VF,IF)
-        reward = self.get_reward(self.new_code,current_filename,VF_idx,IF_idx)
+
+        # self.new_code[self.pragmas_idxs[current_filename][self.current_pragma_idx]] = pragma_line.format(VF,IF)
+        self.new_code[self.pragmas_idxs[current_filename][self.current_pragma_idx]] = pragma_line.format(unroll_factor)
+        # reward = self.get_reward(self.new_code,current_filename,VF_idx,IF_idx)
+        reward = self.get_reward(self.new_code, current_filename, unroll_idx)
+        
+        ## For debugging
+        # print("Unroll Factor:", unroll_factor)
+        # print('reward:', reward, 'O3',self.O3_runtimes[current_filename])
+        
         #print("VF",VF,"IF",IF)
         #print('reward:', reward, 'O3',self.O3_runtimes[current_filename])
         self.current_pragma_idx += 1

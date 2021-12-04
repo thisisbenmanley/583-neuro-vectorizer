@@ -41,14 +41,18 @@ logger = logging.getLogger(__name__)
 MAX_LEAF_NODES = os.environ['MAX_LEAF_NODES']
 TEST_SHELL_COMMAND_TIMEOUT = os.environ['TEST_SHELL_COMMAND_TIMEOUT']
 # pragma line injected for each loop
-pragma_line = '#pragma clang loop vectorize_width({0}) interleave_count({1})\n'
 
-def init_runtimes_dict(files,num_loops,VF_len,IF_len):
+pragma_line = '#pragma clang loop unroll_count({0})\n'
+# pragma_line = '#pragma clang loop vectorize_width({0}) interleave_count({1})\n'
+
+# def init_runtimes_dict(files,num_loops,VF_len,IF_len):
+def init_runtimes_dict(files, num_loops, unroll_len):
     '''Used to initialize runtimes dict that stores 
     runtimes for all the files and loops for 
     different VF/IF during training to save time.'''
     runtimes = {}
-    one_program_runtimes = [[None]*IF_len for vf in range(VF_len)]
+    # one_program_runtimes = [[None]*IF_len for vf in range(VF_len)]
+    one_program_runtimes = [None]*unroll_len
     for f in files:
         runtimes[f] = {}
         for l in range(num_loops[f]):
@@ -238,7 +242,8 @@ def get_vectorized_code(code):
             orig_i=i
             while(i<ending+1):
                 if i==begining:
-                    new_code.append('//'+pragma_line.format(64,16))#start with -O3 vectorization
+                    # new_code.append('//'+pragma_line.format(64,16))#start with -O3 vectorization
+                    new_code.append('//'+pragma_line.format(8)) # start with O3 unroll factor
                     num_elems_in_new_code += 1
                     pragma_indices.append(num_elems_in_new_code-1)
                 new_code.append(code[i])
