@@ -48,10 +48,12 @@ logger = logging.getLogger(__name__)
 class NeuroVectorizerEnv(gym.Env):
     def __init__(self, env_config):
         self.init_from_env_config(env_config)
-        self.copy_train_data()
-        self.parse_train_data()
         self.config_AST_parser()
         self.init_RL_env()
+        self.copy_train_data()
+        self.parse_train_data()
+        #self.config_AST_parser()
+        #self.init_RL_env()
         # Keeps track of the file being processed currently.
         self.current_file_idx = 0
         # Keeps track of the current loop being processed currently in that file.
@@ -97,8 +99,8 @@ class NeuroVectorizerEnv(gym.Env):
             os.mkdir(self.new_rundir)
 
         cmd = 'cp -r ' +self.dirpath+'/* ' +self.new_rundir
-        print('running:',cmd)
-        os.system(cmd)
+        print('running:',"pwd && " + cmd)
+        os.system("pwd && " + cmd)
     
     def init_RL_env(self):
         ''' Defines the reinforcement leaning environment.
@@ -123,6 +125,12 @@ class NeuroVectorizerEnv(gym.Env):
              for name in files
              if name.endswith(".c") and not name.startswith('header.c') 
              and not name.startswith('aux_AST_embedding_code.c')]
+
+        print("BOUTA BRUTEFORCE - self.new_rundir = " + self.new_rundir)
+        print("RUNNING PWD")
+        os.system("pwd")
+        get_bruteforce_runtimes(self.new_rundir, self.orig_train_files, self.vec_action_meaning, self.interleave_action_meaning)
+
         # copy testfiles
         self.new_testfiles = list(self.orig_train_files)
         # parse the code to detect loops and inject commented pragmas.  

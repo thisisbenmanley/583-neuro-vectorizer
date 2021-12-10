@@ -73,9 +73,9 @@ def get_bruteforce_runtimes(rundir,files,vec_action_meaning,
                 rm_cmd = 'rm ' + filename[:-1]+'o '
                 if os.path.exists(filename[:-1]+'o'):
                     os.system(rm_cmd)
-                cmd1 = 'timeout 4s ' + os.environ['CLANG_BIN_PATH'] + ' -O3 -lm '+full_path_header
-                +' ' +filename+' -Rpass=loop-vectorize -mllvm -force-vector-width='
-                +str(VF)+' -mllvm -force-vector-interleave='+str(IF)
+                cmd1 = 'timeout 4s ' + os.environ['CLANG_BIN_PATH'] + ' -O3 -lm '+full_path_header \
+                +' ' +str(filename)+' -Rpass=loop-vectorize -mllvm -force-vector-width=' \
+                +str(VF)+' -mllvm -force-vector-interleave='+str(IF) \
                 +' -o ' +filename[:-1]+'o'
                 os.system(cmd1)
                 cmd2 = filename[:-1]+'o '
@@ -88,7 +88,7 @@ def get_bruteforce_runtimes(rundir,files,vec_action_meaning,
                                    ' due to time out. Setting runtime to: '+str(runtime)+'.' +
                                    ' Consider increasing the timeout, which is set to 4 seconds.')
                 one_program_runtimes[i][j] = runtime
-                if runtime<opt_runtime:
+                if runtime is not None and runtime<opt_runtime:
                     opt_runtime = runtime
                     opt_factor = (VF,IF)
         opt_runtimes[filename] = opt_runtime
@@ -98,6 +98,7 @@ def get_bruteforce_runtimes(rundir,files,vec_action_meaning,
     output = open(os.path.join(rundir,'bruteforce_runtimes.pkl'), 'wb')
     pickle.dump(data, output)
     output.close()
+    exit(0)
 
 def rename_contents(rundir, contents):
     '''Takes in a run directory, and the contents of the pkl file, renames the directory of the contents
