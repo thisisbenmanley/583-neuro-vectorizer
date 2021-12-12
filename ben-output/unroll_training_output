@@ -1,0 +1,1283 @@
+== Status ==
+Memory usage on this node: 0.9/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------+
+| Trial name        | status   | loc   |
+|-------------------+----------+-------|
+| PPO_autovec_00000 | RUNNING  |       |
++-------------------+----------+-------+
+
+
+[2m[36m(pid=423)[0m /home/bdmanley/anaconda3/lib/python3.7/site-packages/ale_py/roms/utils.py:90: DeprecationWarning: SelectableGroups dict interface is deprecated. Use select.
+[2m[36m(pid=423)[0m   for external in metadata.entry_points().get(self.group, []):
+[2m[36m(pid=423)[0m creating ./new_unroll_garbage_423 directory
+[2m[36m(pid=423)[0m running: cp -r ./training_data/* ./new_unroll_garbage_423
+[2m[36m(pid=423)[0m 2021-12-03 18:28:45,996	INFO trainer.py:428 -- Tip: set 'eager': true or the --eager flag to enable TensorFlow eager execution
+[2m[36m(pid=423)[0m 2021-12-03 18:28:46,004	WARNING deprecation.py:30 -- DeprecationWarning: `sample_batch_size` has been deprecated. Use `rollout_fragment_length` instead. This will raise an error in the future!
+[2m[36m(pid=423)[0m 2021-12-03 18:28:46,004	INFO trainer.py:585 -- Current log_level is WARN. For more information, set 'log_level': 'INFO' / 'DEBUG' or use the -v and -vv flags.
+[2m[36m(pid=423)[0m cp: cannot stat './training_data/*': No such file or directory
+[2m[36m(pid=423)[0m Checking if local obs_encodings.pkl file exists.
+[2m[36m(pid=423)[0m Checking if local O3_runtimes.pkl file exists to avoid waste of compilation.
+[2m[36m(pid=423)[0m Did not find O3_runtimes.pkl... Compiling to get -O3 runtimes.
+[2m[36m(pid=421)[0m /home/bdmanley/anaconda3/lib/python3.7/site-packages/ale_py/roms/utils.py:90: DeprecationWarning: SelectableGroups dict interface is deprecated. Use select.
+[2m[36m(pid=421)[0m   for external in metadata.entry_points().get(self.group, []):
+[2m[36m(pid=421)[0m creating ./new_unroll_garbage_421 directory
+[2m[36m(pid=421)[0m running: cp -r ./training_data/* ./new_unroll_garbage_421
+[2m[36m(pid=423)[0m 2021-12-03 18:28:50,843	INFO trainable.py:217 -- Getting current IP.
+[2m[36m(pid=423)[0m 2021-12-03 18:28:50,843	WARNING util.py:37 -- Install gputil for GPU system monitoring.
+[2m[36m(pid=421)[0m Checking if local obs_encodings.pkl file exists.
+[2m[36m(pid=421)[0m found local obs_encodings.pkl.
+[2m[36m(pid=421)[0m Checking if local O3_runtimes.pkl file exists to avoid waste of compilation.
+[2m[36m(pid=421)[0m Program ./new_unroll_garbage_421/s18_512_i1_out.c does not compile in two seconds. Consider removing it or increasing the timeout parameter in utility.py.
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_18-37-05
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.8720095693779905
+  episode_reward_mean: 0.2739650728023393
+  episode_reward_min: -3.84981684981685
+  episodes_this_iter: 500
+  episodes_total: 500
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 2313.295
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.20000000298023224
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.9252194166183472
+        entropy_coeff: 0.0
+        kl: 0.021706510335206985
+        model: {}
+        policy_loss: -0.0764453336596489
+        total_loss: 0.1468481570482254
+        vf_explained_var: 0.30004143714904785
+        vf_loss: 0.2189522236585617
+    load_time_ms: 55.986
+    num_steps_sampled: 500
+    num_steps_trained: 500
+    sample_time_ms: 491573.666
+    update_time_ms: 584.199
+  iterations_since_restore: 1
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.44759206798867
+    ram_util_percent: 12.816713881019831
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 966.7303314703908
+    mean_inference_ms: 2.0803139357271783
+    mean_processing_ms: 1.5888456812875715
+  time_since_restore: 494.630264043808
+  time_this_iter_s: 494.630264043808
+  time_total_s: 494.630264043808
+  timestamp: 1638574625
+  timesteps_since_restore: 500
+  timesteps_this_iter: 500
+  timesteps_total: 500
+  training_iteration: 1
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |      1 |           494.63 |  500 | 0.273965 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_18-44-29
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.9680553510967173
+  episode_reward_mean: 0.34744845818873177
+  episode_reward_min: -4.022388059701493
+  episodes_this_iter: 500
+  episodes_total: 1000
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 2078.943
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.30000001192092896
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.8830279111862183
+        entropy_coeff: 0.0
+        kl: 0.01809607446193695
+        model: {}
+        policy_loss: -0.08383882790803909
+        total_loss: 0.04847061261534691
+        vf_explained_var: 0.22518233954906464
+        vf_loss: 0.12688061594963074
+    load_time_ms: 29.787
+    num_steps_sampled: 1000
+    num_steps_trained: 1000
+    sample_time_ms: 466545.495
+    update_time_ms: 294.529
+  iterations_since_restore: 2
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.08515007898894
+    ram_util_percent: 13.093838862559242
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 923.120885938555
+    mean_inference_ms: 1.9799033840457636
+    mean_processing_ms: 1.5401675865485835
+  time_since_restore: 938.0097348690033
+  time_this_iter_s: 443.3794708251953
+  time_total_s: 938.0097348690033
+  timestamp: 1638575069
+  timesteps_since_restore: 1000
+  timesteps_this_iter: 500
+  timesteps_total: 1000
+  training_iteration: 2
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |      2 |           938.01 | 1000 | 0.347448 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_18-51-50
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.8838745184369841
+  episode_reward_mean: 0.37290510233651414
+  episode_reward_min: -3.6715867158671585
+  episodes_this_iter: 500
+  episodes_total: 1500
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 2001.525
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.30000001192092896
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.8290345668792725
+        entropy_coeff: 0.0
+        kl: 0.015515616163611412
+        model: {}
+        policy_loss: -0.08186013996601105
+        total_loss: 0.02548961155116558
+        vf_explained_var: 0.267858624458313
+        vf_loss: 0.1026950553059578
+    load_time_ms: 20.718
+    num_steps_sampled: 1500
+    num_steps_trained: 1500
+    sample_time_ms: 457551.371
+    update_time_ms: 197.619
+  iterations_since_restore: 3
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.158571428571431
+    ram_util_percent: 13.154761904761902
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 907.2769495108222
+    mean_inference_ms: 1.9391409005426228
+    mean_processing_ms: 1.5169254229276838
+  time_since_restore: 1379.4354708194733
+  time_this_iter_s: 441.42573595046997
+  time_total_s: 1379.4354708194733
+  timestamp: 1638575510
+  timesteps_since_restore: 1500
+  timesteps_this_iter: 500
+  timesteps_total: 1500
+  training_iteration: 3
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |      3 |          1379.44 | 1500 | 0.372905 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_18-59-24
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.8919949174078781
+  episode_reward_mean: 0.40908844533169675
+  episode_reward_min: -1.8586572438162545
+  episodes_this_iter: 500
+  episodes_total: 2000
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 1930.027
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.30000001192092896
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.7716484069824219
+        entropy_coeff: 0.0
+        kl: 0.01537050399929285
+        model: {}
+        policy_loss: -0.08731992542743683
+        total_loss: -0.03342859819531441
+        vf_explained_var: 0.3683951199054718
+        vf_loss: 0.04928017780184746
+    load_time_ms: 16.15
+    num_steps_sampled: 2000
+    num_steps_trained: 2000
+    sample_time_ms: 456268.477
+    update_time_ms: 149.477
+  iterations_since_restore: 4
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.133179012345678
+    ram_util_percent: 13.171296296296296
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 905.7682872354713
+    mean_inference_ms: 1.9263217950808529
+    mean_processing_ms: 1.5087804455926335
+  time_since_restore: 1833.5881447792053
+  time_this_iter_s: 454.15267395973206
+  time_total_s: 1833.5881447792053
+  timestamp: 1638575964
+  timesteps_since_restore: 2000
+  timesteps_this_iter: 500
+  timesteps_total: 2000
+  training_iteration: 4
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |      4 |          1833.59 | 2000 | 0.409088 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_19-07-00
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.8640483383685801
+  episode_reward_mean: 0.3677537285393389
+  episode_reward_min: -2.6027397260273974
+  episodes_this_iter: 500
+  episodes_total: 2500
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 1902.231
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.30000001192092896
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.681649923324585
+        entropy_coeff: 0.0
+        kl: 0.015401269309222698
+        model: {}
+        policy_loss: -0.0524018332362175
+        total_loss: 0.025488760322332382
+        vf_explained_var: 0.3711837828159332
+        vf_loss: 0.07327021658420563
+    load_time_ms: 13.476
+    num_steps_sampled: 2500
+    num_steps_trained: 2500
+    sample_time_ms: 455720.821
+    update_time_ms: 120.601
+  iterations_since_restore: 5
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.17704160246533
+    ram_util_percent: 13.199229583975345
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 905.2804939654385
+    mean_inference_ms: 1.9254034302416732
+    mean_processing_ms: 1.5174244366279372
+  time_since_restore: 2288.9264941215515
+  time_this_iter_s: 455.3383493423462
+  time_total_s: 2288.9264941215515
+  timestamp: 1638576420
+  timesteps_since_restore: 2500
+  timesteps_this_iter: 500
+  timesteps_total: 2500
+  training_iteration: 5
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |      5 |          2288.93 | 2500 | 0.367754 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_19-14-07
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.8576329331046312
+  episode_reward_mean: 0.39368489137343293
+  episode_reward_min: -1.841648590021692
+  episodes_this_iter: 500
+  episodes_total: 3000
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 1910.508
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.30000001192092896
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.6070656776428223
+        entropy_coeff: 0.0
+        kl: 0.016019271686673164
+        model: {}
+        policy_loss: -0.066559799015522
+        total_loss: -0.008141408674418926
+        vf_explained_var: 0.4582279622554779
+        vf_loss: 0.0536126010119915
+    load_time_ms: 11.66
+    num_steps_sampled: 3000
+    num_steps_trained: 3000
+    sample_time_ms: 450714.88
+    update_time_ms: 101.276
+  iterations_since_restore: 6
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.154590163934426
+    ram_util_percent: 13.217377049180326
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 895.6889148872323
+    mean_inference_ms: 1.9291393441464337
+    mean_processing_ms: 1.5109670595183682
+  time_since_restore: 2716.5803349018097
+  time_this_iter_s: 427.6538407802582
+  time_total_s: 2716.5803349018097
+  timestamp: 1638576847
+  timesteps_since_restore: 3000
+  timesteps_this_iter: 500
+  timesteps_total: 3000
+  training_iteration: 6
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |      6 |          2716.58 | 3000 | 0.393685 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_19-21-19
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.8679101636848116
+  episode_reward_mean: 0.4037345354549823
+  episode_reward_min: -1.3489583333333333
+  episodes_this_iter: 500
+  episodes_total: 3500
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 1893.973
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.30000001192092896
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.5900819301605225
+        entropy_coeff: 0.0
+        kl: 0.009933690540492535
+        model: {}
+        policy_loss: -0.04758947715163231
+        total_loss: -0.01063587050884962
+        vf_explained_var: 0.601245105266571
+        vf_loss: 0.03397350385785103
+    load_time_ms: 10.327
+    num_steps_sampled: 3500
+    num_steps_trained: 3500
+    sample_time_ms: 447800.984
+    update_time_ms: 87.545
+  iterations_since_restore: 7
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.151539708265803
+    ram_util_percent: 13.212155591572122
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 890.1621288859618
+    mean_inference_ms: 1.9220337463222
+    mean_processing_ms: 1.5144567426971896
+  time_since_restore: 3148.7090117931366
+  time_this_iter_s: 432.1286768913269
+  time_total_s: 3148.7090117931366
+  timestamp: 1638577279
+  timesteps_since_restore: 3500
+  timesteps_this_iter: 500
+  timesteps_total: 3500
+  training_iteration: 7
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |      7 |          3148.71 | 3500 | 0.403735 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_19-28-29
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.8721109399075501
+  episode_reward_mean: 0.40674806324140556
+  episode_reward_min: -1.8850574712643677
+  episodes_this_iter: 500
+  episodes_total: 4000
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 1887.232
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.30000001192092896
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.5287226438522339
+        entropy_coeff: 0.0
+        kl: 0.010383819229900837
+        model: {}
+        policy_loss: -0.03982314467430115
+        total_loss: 0.0075192684307694435
+        vf_explained_var: 0.5358937382698059
+        vf_loss: 0.04422727972269058
+    load_time_ms: 9.32
+    num_steps_sampled: 4000
+    num_steps_trained: 4000
+    sample_time_ms: 445294.408
+    update_time_ms: 77.179
+  iterations_since_restore: 8
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.031321370309952
+    ram_util_percent: 13.249755301794455
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 885.3758617926468
+    mean_inference_ms: 1.9197397248740797
+    mean_processing_ms: 1.5123998841712605
+  time_since_restore: 3578.3129839897156
+  time_this_iter_s: 429.603972196579
+  time_total_s: 3578.3129839897156
+  timestamp: 1638577709
+  timesteps_since_restore: 4000
+  timesteps_this_iter: 500
+  timesteps_total: 4000
+  training_iteration: 8
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |      8 |          3578.31 | 4000 | 0.406748 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_19-36-03
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.8680555555555556
+  episode_reward_mean: 0.3903548753611958
+  episode_reward_min: -3.7285714285714286
+  episodes_this_iter: 500
+  episodes_total: 4500
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 1888.515
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.30000001192092896
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.4552825689315796
+        entropy_coeff: 0.0
+        kl: 0.015551501885056496
+        model: {}
+        policy_loss: -0.043813519179821014
+        total_loss: 0.025483431294560432
+        vf_explained_var: 0.38012731075286865
+        vf_loss: 0.06463150680065155
+    load_time_ms: 8.56
+    num_steps_sampled: 4500
+    num_steps_trained: 4500
+    sample_time_ms: 445977.652
+    update_time_ms: 69.207
+  iterations_since_restore: 9
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.241885625965997
+    ram_util_percent: 13.251622874806799
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 886.9145426636825
+    mean_inference_ms: 1.9172312179901043
+    mean_processing_ms: 1.514671802838573
+  time_since_restore: 4031.673569202423
+  time_this_iter_s: 453.3605852127075
+  time_total_s: 4031.673569202423
+  timestamp: 1638578163
+  timesteps_since_restore: 4500
+  timesteps_this_iter: 500
+  timesteps_total: 4500
+  training_iteration: 9
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |      9 |          4031.67 | 4500 | 0.390355 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+[2m[36m(pid=421)[0m Program ./new_unroll_garbage_421/s15_512_256_sub_2.c does not compile in two seconds. Consider removing it or increasing the timeout parameter in utility.py.
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_19-43-29
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.8573551263001485
+  episode_reward_mean: 0.3841308206188512
+  episode_reward_min: -1.4946236559139785
+  episodes_this_iter: 500
+  episodes_total: 5000
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 1870.447
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.30000001192092896
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.3816766738891602
+        entropy_coeff: 0.0
+        kl: 0.017565354704856873
+        model: {}
+        policy_loss: -0.05323269963264465
+        total_loss: -0.006852446589618921
+        vf_explained_var: 0.4383043646812439
+        vf_loss: 0.041110653430223465
+    load_time_ms: 7.955
+    num_steps_sampled: 5000
+    num_steps_trained: 5000
+    sample_time_ms: 445897.17
+    update_time_ms: 62.822
+  iterations_since_restore: 10
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.072370486656201
+    ram_util_percent: 13.2850863422292
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 886.8818635393253
+    mean_inference_ms: 1.9209183733169144
+    mean_processing_ms: 1.5202198379446428
+  time_since_restore: 4478.570733785629
+  time_this_iter_s: 446.8971645832062
+  time_total_s: 4478.570733785629
+  timestamp: 1638578609
+  timesteps_since_restore: 5000
+  timesteps_this_iter: 500
+  timesteps_total: 5000
+  training_iteration: 10
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |     10 |          4478.57 | 5000 | 0.384131 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_19-50-57
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.8746438746438746
+  episode_reward_mean: 0.41280477701865587
+  episode_reward_min: -0.8197879858657244
+  episodes_this_iter: 500
+  episodes_total: 5500
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 1822.975
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.30000001192092896
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.2882848978042603
+        entropy_coeff: 0.0
+        kl: 0.020830880850553513
+        model: {}
+        policy_loss: -0.056058119982481
+        total_loss: -0.03237563744187355
+        vf_explained_var: 0.6534884572029114
+        vf_loss: 0.01743321493268013
+    load_time_ms: 2.61
+    num_steps_sampled: 5500
+    num_steps_trained: 5500
+    sample_time_ms: 441311.788
+    update_time_ms: 4.963
+  iterations_since_restore: 11
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.21627543035994
+    ram_util_percent: 13.30625978090767
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 886.9627720441543
+    mean_inference_ms: 1.9178954368720293
+    mean_processing_ms: 1.5225900214187795
+  time_since_restore: 4926.145805120468
+  time_this_iter_s: 447.57507133483887
+  time_total_s: 4926.145805120468
+  timestamp: 1638579057
+  timesteps_since_restore: 5500
+  timesteps_this_iter: 500
+  timesteps_total: 5500
+  training_iteration: 11
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |     11 |          4926.15 | 5500 | 0.412805 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_19-58-39
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.8573529411764705
+  episode_reward_mean: 0.3893429203473771
+  episode_reward_min: -0.7458563535911602
+  episodes_this_iter: 500
+  episodes_total: 6000
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 1811.5
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.44999998807907104
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.2593096494674683
+        entropy_coeff: 0.0
+        kl: 0.018198657780885696
+        model: {}
+        policy_loss: -0.044771358370780945
+        total_loss: -0.016044368967413902
+        vf_explained_var: 0.6252353191375732
+        vf_loss: 0.020537592470645905
+    load_time_ms: 2.521
+    num_steps_sampled: 6000
+    num_steps_trained: 6000
+    sample_time_ms: 443172.096
+    update_time_ms: 5.046
+  iterations_since_restore: 12
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.193323216995447
+    ram_util_percent: 13.260091047040971
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 889.4073781202763
+    mean_inference_ms: 1.9236310603836737
+    mean_processing_ms: 1.5383686071394922
+  time_since_restore: 5388.013250589371
+  time_this_iter_s: 461.8674454689026
+  time_total_s: 5388.013250589371
+  timestamp: 1638579519
+  timesteps_since_restore: 6000
+  timesteps_this_iter: 500
+  timesteps_total: 6000
+  training_iteration: 12
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |     12 |          5388.01 | 6000 | 0.389343 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_20-06-34
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.8561643835616438
+  episode_reward_mean: 0.37848561771274924
+  episode_reward_min: -1.220447284345048
+  episodes_this_iter: 500
+  episodes_total: 6500
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 1800.473
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.44999998807907104
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.1743911504745483
+        entropy_coeff: 0.0
+        kl: 0.011975087225437164
+        model: {}
+        policy_loss: -0.033002015203237534
+        total_loss: -0.0017261594766750932
+        vf_explained_var: 0.5669906139373779
+        vf_loss: 0.02588706463575363
+    load_time_ms: 2.493
+    num_steps_sampled: 6500
+    num_steps_trained: 6500
+    sample_time_ms: 446547.949
+    update_time_ms: 5.107
+  iterations_since_restore: 13
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.147050147492626
+    ram_util_percent: 13.29439528023599
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 893.498493146757
+    mean_inference_ms: 1.9329909342396274
+    mean_processing_ms: 1.555153231055273
+  time_since_restore: 5863.087417125702
+  time_this_iter_s: 475.0741665363312
+  time_total_s: 5863.087417125702
+  timestamp: 1638579994
+  timesteps_since_restore: 6500
+  timesteps_this_iter: 500
+  timesteps_total: 6500
+  training_iteration: 13
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |     13 |          5863.09 | 6500 | 0.378486 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_20-14-19
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.8578431372549019
+  episode_reward_mean: 0.4022204595441623
+  episode_reward_min: -1.5
+  episodes_this_iter: 500
+  episodes_total: 7000
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 1794.187
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.44999998807907104
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.129006266593933
+        entropy_coeff: 0.0
+        kl: 0.006726159248501062
+        model: {}
+        policy_loss: -0.02259894832968712
+        total_loss: 0.009779908694326878
+        vf_explained_var: 0.5771761536598206
+        vf_loss: 0.029352080076932907
+    load_time_ms: 2.503
+    num_steps_sampled: 7000
+    num_steps_trained: 7000
+    sample_time_ms: 447634.691
+    update_time_ms: 5.203
+  iterations_since_restore: 14
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.17420814479638
+    ram_util_percent: 13.293815987933634
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 895.5788133212828
+    mean_inference_ms: 1.9363689858510549
+    mean_processing_ms: 1.5671665950121834
+  time_since_restore: 6328.044812440872
+  time_this_iter_s: 464.9573953151703
+  time_total_s: 6328.044812440872
+  timestamp: 1638580459
+  timesteps_since_restore: 7000
+  timesteps_this_iter: 500
+  timesteps_total: 7000
+  training_iteration: 14
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |     14 |          6328.04 | 7000 |  0.40222 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_20-21-49
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.864406779661017
+  episode_reward_mean: 0.4188776585245217
+  episode_reward_min: -1.6377952755905512
+  episodes_this_iter: 500
+  episodes_total: 7500
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 1806.059
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.44999998807907104
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.142259120941162
+        entropy_coeff: 0.0
+        kl: 0.009331495501101017
+        model: {}
+        policy_loss: -0.025409020483493805
+        total_loss: 0.008220057934522629
+        vf_explained_var: 0.5928094983100891
+        vf_loss: 0.029429905116558075
+    load_time_ms: 2.551
+    num_steps_sampled: 7500
+    num_steps_trained: 7500
+    sample_time_ms: 447021.055
+    update_time_ms: 5.221
+  iterations_since_restore: 15
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.15631825273011
+    ram_util_percent: 13.346957878315129
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 895.263135441143
+    mean_inference_ms: 1.9405620795157001
+    mean_processing_ms: 1.5765046965295575
+  time_since_restore: 6777.368584156036
+  time_this_iter_s: 449.3237717151642
+  time_total_s: 6777.368584156036
+  timestamp: 1638580909
+  timesteps_since_restore: 7500
+  timesteps_this_iter: 500
+  timesteps_total: 7500
+  training_iteration: 15
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |     15 |          6777.37 | 7500 | 0.418878 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+[2m[36m(pid=421)[0m Program ./new_unroll_garbage_421/s18_512_i1_out.c does not compile in two seconds. Consider removing it or increasing the timeout parameter in utility.py.
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_20-30-10
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.8628428927680798
+  episode_reward_mean: 0.34837494225911825
+  episode_reward_min: -1.6180555555555556
+  episodes_this_iter: 500
+  episodes_total: 8000
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 1791.007
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.44999998807907104
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.1336668729782104
+        entropy_coeff: 0.0
+        kl: 0.010216359980404377
+        model: {}
+        policy_loss: -0.023862464353442192
+        total_loss: 0.01050195936113596
+        vf_explained_var: 0.5552612543106079
+        vf_loss: 0.029767055064439774
+    load_time_ms: 2.524
+    num_steps_sampled: 8000
+    num_steps_trained: 8000
+    sample_time_ms: 454429.174
+    update_time_ms: 5.427
+  iterations_since_restore: 16
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.132122905027934
+    ram_util_percent: 13.341061452513967
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 901.5154566202831
+    mean_inference_ms: 1.9512177109643827
+    mean_processing_ms: 1.5940344969848739
+  time_since_restore: 7278.9562656879425
+  time_this_iter_s: 501.5876815319061
+  time_total_s: 7278.9562656879425
+  timestamp: 1638581410
+  timesteps_since_restore: 8000
+  timesteps_this_iter: 500
+  timesteps_total: 8000
+  training_iteration: 16
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |     16 |          7278.96 | 8000 | 0.348375 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_20-37-28
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.9646695127336965
+  episode_reward_mean: 0.38805914622226056
+  episode_reward_min: -1.104
+  episodes_this_iter: 500
+  episodes_total: 8500
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 1789.137
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.44999998807907104
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.1008933782577515
+        entropy_coeff: 0.0
+        kl: 0.017304660752415657
+        model: {}
+        policy_loss: -0.0426204688847065
+        total_loss: -0.009063541889190674
+        vf_explained_var: 0.5687299370765686
+        vf_loss: 0.02576982043683529
+    load_time_ms: 2.658
+    num_steps_sampled: 8500
+    num_steps_trained: 8500
+    sample_time_ms: 454974.634
+    update_time_ms: 5.447
+  iterations_since_restore: 17
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.076923076923077
+    ram_util_percent: 13.359935897435895
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 899.514079164048
+    mean_inference_ms: 1.9565909459385897
+    mean_processing_ms: 1.6038465494268739
+  time_since_restore: 7716.523731470108
+  time_this_iter_s: 437.5674657821655
+  time_total_s: 7716.523731470108
+  timestamp: 1638581848
+  timesteps_since_restore: 8500
+  timesteps_this_iter: 500
+  timesteps_total: 8500
+  training_iteration: 17
+  trial_id: '00000'
+  
+== Status ==
+Memory usage on this node: 1.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/7.28 GiB heap, 0.0/2.49 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_train
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------------------+--------+------------------+------+----------+
+| Trial name        | status   | loc               |   iter |   total time (s) |   ts |   reward |
+|-------------------+----------+-------------------+--------+------------------+------+----------|
+| PPO_autovec_00000 | RUNNING  | 172.19.71.105:423 |     17 |          7716.52 | 8500 | 0.388059 |
++-------------------+----------+-------------------+--------+------------------+------+----------+
+
+
+Result for PPO_autovec_00000:
+  custom_metrics: {}
+  date: 2021-12-03_20-44-26
+  done: false
+  episode_len_mean: 1.0
+  episode_reward_max: 0.8742774566473989
+  episode_reward_mean: 0.41585914281047087
+  episode_reward_min: -1.119533527696793
+  episodes_this_iter: 500
+  episodes_total: 9000
+  experiment_id: 4ce322bef21948ed909a866986aa4d76
+  experiment_tag: '0'
+  hostname: DESKTOP-D8CG7UF
+  info:
+    grad_time_ms: 1785.763
+    learner:
+      default_policy:
+        cur_kl_coeff: 0.44999998807907104
+        cur_lr: 4.999999873689376e-05
+        entropy: 1.0747828483581543
+        entropy_coeff: 0.0
+        kl: 0.008596268482506275
+        model: {}
+        policy_loss: -0.028576035052537918
+        total_loss: 0.0002856564533431083
+        vf_explained_var: 0.510532796382904
+        vf_loss: 0.02499336749315262
+    load_time_ms: 2.673
+    num_steps_sampled: 9000
+    num_steps_trained: 9000
+    sample_time_ms: 453883.585
+    update_time_ms: 5.496
+  iterations_since_restore: 18
+  node_ip: 172.19.71.105
+  num_healthy_workers: 1
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 14.207872696817422
+    ram_util_percent: 13.370519262981574
+  pid: 423
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_env_wait_ms: 895.640367084762
+    mean_inference_ms: 1.9575851570962604
+    mean_processing_ms: 1.6078304786203224
+  time_since_restore: 8135.1849846839905
+  time_this_iter_s: 418.66125321388245
+  time_total_s: 8135.1849846839905
+  timestamp: 1638582266
+  timesteps_since_restore: 9000
+  timesteps_this_iter: 500
+  timesteps_total: 9000
+  training_iteration: 18
+  trial_id: '00000'
+  

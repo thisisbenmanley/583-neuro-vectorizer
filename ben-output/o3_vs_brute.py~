@@ -1,0 +1,20 @@
+import pickle
+
+o3file = open("tests_O3_times.pkl", "rb")
+brutefile = open("tests_bruteforce_times.pkl", "rb")
+
+o3data = pickle.load(o3file)
+brutedata = pickle.load(brutefile)
+
+o3runtimes = o3data["opt_runtimes"]
+
+bruteruntimes = brutedata["opt_runtimes"]
+brutefactors = brutedata["opt_factors"]
+
+for filename in o3runtimes: # other is 'opt_factors'
+	o3runtime = o3runtimes[filename]
+	bruteruntime = bruteruntimes[filename]
+	brutefactor = brutefactors[filename]
+	speedup = o3runtime / (float)bruteruntime
+
+	print(filename + ": O3=" + str(o3runtime) + ", brute=" + str(bruteruntime) + ", speedup=" + str(speedup) + "x @ VF/IF=" + str(brutefactor))

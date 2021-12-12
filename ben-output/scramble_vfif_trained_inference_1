@@ -1,0 +1,320 @@
+== Status ==
+Memory usage on this node: 4.6/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/4.98 GiB heap, 0.0/1.71 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_rollout
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------+
+| Trial name        | status   | loc   |
+|-------------------+----------+-------|
+| PPO_autovec_00000 | RUNNING  |       |
++-------------------+----------+-------+
+
+
+[2m[36m(pid=22640)[0m /home/bdmanley/anaconda3/lib/python3.7/site-packages/ale_py/roms/utils.py:90: DeprecationWarning: SelectableGroups dict interface is deprecated. Use select.
+[2m[36m(pid=22640)[0m   for external in metadata.entry_points().get(self.group, []):
+[2m[36m(pid=22640)[0m 2021-12-11 16:42:01,453	INFO trainer.py:428 -- Tip: set 'eager': true or the --eager flag to enable TensorFlow eager execution
+[2m[36m(pid=22640)[0m creating ./new_scramble_vfif_trained_rollout_garbage_22640 directory
+[2m[36m(pid=22640)[0m running: cp -r ./tests/* ./new_scramble_vfif_trained_rollout_garbage_22640
+[2m[36m(pid=22640)[0m 2021-12-11 16:42:01,460	WARNING deprecation.py:30 -- DeprecationWarning: `sample_batch_size` has been deprecated. Use `rollout_fragment_length` instead. This will raise an error in the future!
+[2m[36m(pid=22640)[0m 2021-12-11 16:42:01,460	INFO trainer.py:585 -- Current log_level is WARN. For more information, set 'log_level': 'INFO' / 'DEBUG' or use the -v and -vv flags.
+[2m[36m(pid=22640)[0m cp: cannot stat './tests/*': No such file or directory
+[2m[36m(pid=22640)[0m Checking if local obs_encodings.pkl file exists.
+[2m[36m(pid=22640)[0m Checking if local O3_runtimes.pkl file exists to avoid waste of compilation.
+[2m[36m(pid=22640)[0m Did not find O3_runtimes.pkl... Compiling to get -O3 runtimes.
+[2m[36m(pid=22639)[0m /home/bdmanley/anaconda3/lib/python3.7/site-packages/ale_py/roms/utils.py:90: DeprecationWarning: SelectableGroups dict interface is deprecated. Use select.
+[2m[36m(pid=22639)[0m   for external in metadata.entry_points().get(self.group, []):
+[2m[36m(pid=22639)[0m creating ./new_scramble_vfif_trained_rollout_garbage_22639 directory
+[2m[36m(pid=22639)[0m running: cp -r ./tests/* ./new_scramble_vfif_trained_rollout_garbage_22639
+[2m[36m(pid=22640)[0m 2021-12-11 16:42:05,555	INFO trainable.py:217 -- Getting current IP.
+[2m[36m(pid=22640)[0m 2021-12-11 16:42:05,556	WARNING util.py:37 -- Install gputil for GPU system monitoring.
+[2m[36m(pid=22640)[0m 2021-12-11 16:42:05,625	INFO trainable.py:217 -- Getting current IP.
+[2m[36m(pid=22640)[0m 2021-12-11 16:42:05,625	INFO trainable.py:423 -- Restored on 172.31.236.87 from checkpoint: /home/bdmanley/ray_results/neurovectorizer_rollout/PPO_autovec_0_2021-12-11_16-41-58nr_wnxe7/tmpf2igokk_restore_from_object/checkpoint-100
+[2m[36m(pid=22640)[0m 2021-12-11 16:42:05,625	INFO trainable.py:430 -- Current state after restoring: {'_iteration': 100, '_timesteps_total': 50000, '_time_total': 29705.578154563904, '_episodes_total': 50000}
+== Status ==
+Memory usage on this node: 5.3/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 2/8 CPUs, 0/0 GPUs, 0.0/4.98 GiB heap, 0.0/1.71 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_rollout
+Number of trials: 1 (1 RUNNING)
++-------------------+----------+-------+
+| Trial name        | status   | loc   |
+|-------------------+----------+-------|
+| PPO_autovec_00000 | RUNNING  |       |
++-------------------+----------+-------+
+
+
+[2m[36m(pid=22639)[0m Checking if local obs_encodings.pkl file exists.
+[2m[36m(pid=22639)[0m Checking if local O3_runtimes.pkl file exists to avoid waste of compilation.
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s15_4096_512_add_0.c O3 runtime:  336 RL runtime:  258 improvement: 1.3X improvement geomean so far: 1.3X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_512_1024_8_5.c O3 runtime:  872 RL runtime:  676 improvement: 1.29X improvement geomean so far: 1.3X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9n_2048_512_3_z.c O3 runtime:  631 RL runtime:  295 improvement: 2.14X improvement geomean so far: 1.53X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9n_16384_4096_3_z.c O3 runtime:  585 RL runtime:  411 improvement: 1.42X improvement geomean so far: 1.5X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s18_128_input_result.c O3 runtime:  372 RL runtime:  675 improvement: 0.55X improvement geomean so far: 1.23X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s15_2048_128_mul_4.c O3 runtime:  92 RL runtime:  93 improvement: 0.99X improvement geomean so far: 1.19X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_8192_64_8_4.c O3 runtime:  902 RL runtime:  589 improvement: 1.53X improvement geomean so far: 1.23X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12nn_2048_2_2_input1_result1.c O3 runtime:  2577 RL runtime:  1008 improvement: 2.56X improvement geomean so far: 1.35X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9n_2048_8192_3_x.c O3 runtime:  559 RL runtime:  385 improvement: 1.45X improvement geomean so far: 1.36X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s8n_128_add_5.c O3 runtime:  67 RL runtime:  86 improvement: 0.78X improvement geomean so far: 1.29X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s15_2048_2048_sub_1.c O3 runtime:  273 RL runtime:  260 improvement: 1.05X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_512_512_8_5.c O3 runtime:  840 RL runtime:  535 improvement: 1.57X improvement geomean so far: 1.29X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12_4096_input_result.c O3 runtime:  202 RL runtime:  197 improvement: 1.03X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_16384_256_4_5.c O3 runtime:  891 RL runtime:  625 improvement: 1.43X improvement geomean so far: 1.27X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s11_256_sub_0.c O3 runtime:  116 RL runtime:  85 improvement: 1.36X improvement geomean so far: 1.28X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_256_256_4_5.c O3 runtime:  851 RL runtime:  551 improvement: 1.54X improvement geomean so far: 1.3X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s18_16384_in_output.c O3 runtime:  478 RL runtime:  459 improvement: 1.04X improvement geomean so far: 1.28X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_256_8192_4_5.c O3 runtime:  887 RL runtime:  718 improvement: 1.24X improvement geomean so far: 1.28X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s15_512_4096_sub_4.c O3 runtime:  265 RL runtime:  259 improvement: 1.02X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s15_64_4096_sub_3.c O3 runtime:  126 RL runtime:  90 improvement: 1.4X improvement geomean so far: 1.27X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s17_2048_mul_6.c O3 runtime:  169 RL runtime:  167 improvement: 1.01X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s13_64_add_3.c O3 runtime:  350 RL runtime:  335 improvement: 1.04X improvement geomean so far: 1.24X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s11_64_sub_2.c O3 runtime:  113 RL runtime:  89 improvement: 1.27X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_8192_8192_4_0.c O3 runtime:  872 RL runtime:  671 improvement: 1.3X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9n_1024_4096_4_y.c O3 runtime:  570 RL runtime:  390 improvement: 1.46X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9n_4096_4096_1_z.c O3 runtime:  557 RL runtime:  397 improvement: 1.4X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s17_64_sum_3.c O3 runtime:  264 RL runtime:  266 improvement: 0.99X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9n_4096_16384_1_z.c O3 runtime:  642 RL runtime:  421 improvement: 1.52X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12nn_256_2_sa_assign1.c O3 runtime:  1030 RL runtime:  1028 improvement: 1.0X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s6_512_sub_3.c O3 runtime:  138 RL runtime:  136 improvement: 1.01X improvement geomean so far: 1.24X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9n_512_128_1_y.c O3 runtime:  479 RL runtime:  197 improvement: 2.43X improvement geomean so far: 1.27X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s15_128_512_mul_4.c O3 runtime:  117 RL runtime:  98 improvement: 1.19X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12nn_4096_in1_ia.c O3 runtime:  1618 RL runtime:  1372 improvement: 1.18X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s17_256_mul_5.c O3 runtime:  175 RL runtime:  178 improvement: 0.98X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s15_128_8192_sub_2.c O3 runtime:  331 RL runtime:  297 improvement: 1.11X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12n_128_in1_result1.c O3 runtime:  354 RL runtime:  344 improvement: 1.03X improvement geomean so far: 1.24X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_64_256_8_2.c O3 runtime:  855 RL runtime:  559 improvement: 1.53X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12_256_sa_result.c O3 runtime:  184 RL runtime:  187 improvement: 0.98X improvement geomean so far: 1.24X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s15_1024_64_add_1.c O3 runtime:  103 RL runtime:  98 improvement: 1.05X improvement geomean so far: 1.24X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s15_64_128_sub_4.c O3 runtime:  107 RL runtime:  96 improvement: 1.11X improvement geomean so far: 1.23X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12n_64_2_sa_result1.c O3 runtime:  690 RL runtime:  685 improvement: 1.01X improvement geomean so far: 1.23X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12_1024_2_4_sa_out.c O3 runtime:  196 RL runtime:  199 improvement: 0.98X improvement geomean so far: 1.22X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9_2048_8192_3.c O3 runtime:  378 RL runtime:  410 improvement: 0.92X improvement geomean so far: 1.21X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_4096_1024_4_1.c O3 runtime:  888 RL runtime:  637 improvement: 1.39X improvement geomean so far: 1.22X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s15_2048_8192_sub_3.c O3 runtime:  277 RL runtime:  277 improvement: 1.0X improvement geomean so far: 1.21X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12n_4096_short_a_assign1.c O3 runtime:  1112 RL runtime:  900 improvement: 1.24X improvement geomean so far: 1.21X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_8192_8192_4_4.c O3 runtime:  894 RL runtime:  679 improvement: 1.32X improvement geomean so far: 1.21X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12n_2048_2_2_short_a_result1.c O3 runtime:  1386 RL runtime:  433 improvement: 3.2X improvement geomean so far: 1.24X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s17_8192_sum_5.c O3 runtime:  172 RL runtime:  176 improvement: 0.98X improvement geomean so far: 1.23X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s15_8192_8192_sub_0.c O3 runtime:  269 RL runtime:  260 improvement: 1.03X improvement geomean so far: 1.23X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_8192_16384_2_3.c O3 runtime:  860 RL runtime:  743 improvement: 1.16X improvement geomean so far: 1.23X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_2048_1024_8_5.c O3 runtime:  891 RL runtime:  660 improvement: 1.35X improvement geomean so far: 1.23X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s1_512_sub_0.c O3 runtime:  116 RL runtime:  114 improvement: 1.02X improvement geomean so far: 1.22X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s2_8192_2_x_out.c O3 runtime:  353 RL runtime:  353 improvement: 1.0X improvement geomean so far: 1.22X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_256_64_8_2.c O3 runtime:  866 RL runtime:  543 improvement: 1.59X improvement geomean so far: 1.23X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s18_2048_in_output.c O3 runtime:  412 RL runtime:  370 improvement: 1.11X improvement geomean so far: 1.22X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_64_16384_4_2.c O3 runtime:  897 RL runtime:  713 improvement: 1.26X improvement geomean so far: 1.22X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s15_8192_64_sub_0.c O3 runtime:  222 RL runtime:  219 improvement: 1.01X improvement geomean so far: 1.22X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12n_256_2_in1_assign1.c O3 runtime:  686 RL runtime:  684 improvement: 1.0X improvement geomean so far: 1.22X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s6n_4096_mul_1.c O3 runtime:  513 RL runtime:  335 improvement: 1.53X improvement geomean so far: 1.22X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s15_256_4096_add_4.c O3 runtime:  314 RL runtime:  286 improvement: 1.1X improvement geomean so far: 1.22X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_128_2048_4_1.c O3 runtime:  835 RL runtime:  523 improvement: 1.6X improvement geomean so far: 1.22X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_2048_512_2_4.c O3 runtime:  911 RL runtime:  660 improvement: 1.38X improvement geomean so far: 1.23X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9_4096_1024_1.c O3 runtime:  431 RL runtime:  408 improvement: 1.06X improvement geomean so far: 1.22X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_16384_2048_4_4.c O3 runtime:  870 RL runtime:  633 improvement: 1.37X improvement geomean so far: 1.23X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9n_16384_64_1_x.c O3 runtime:  528 RL runtime:  250 improvement: 2.11X improvement geomean so far: 1.24X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9_16384_64_2.c O3 runtime:  182 RL runtime:  178 improvement: 1.02X improvement geomean so far: 1.23X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9_256_64_0.c O3 runtime:  106 RL runtime:  106 improvement: 1.0X improvement geomean so far: 1.23X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9n_8192_64_3_x.c O3 runtime:  511 RL runtime:  213 improvement: 2.4X improvement geomean so far: 1.24X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s13_1024_mul_3.c O3 runtime:  272 RL runtime:  186 improvement: 1.46X improvement geomean so far: 1.24X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9n_1024_128_2_y.c O3 runtime:  514 RL runtime:  214 improvement: 2.4X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9n_256_64_1_x.c O3 runtime:  465 RL runtime:  176 improvement: 2.64X improvement geomean so far: 1.27X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s6_512_sub_5.c O3 runtime:  136 RL runtime:  154 improvement: 0.88X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s17_256_sub_1.c O3 runtime:  185 RL runtime:  184 improvement: 1.01X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9_2048_4096_2.c O3 runtime:  384 RL runtime:  369 improvement: 1.04X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s15_512_512_add_1.c O3 runtime:  90 RL runtime:  90 improvement: 1.0X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12nn_16384_2_short_a_out1.c O3 runtime:  2000 RL runtime:  1783 improvement: 1.12X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12_8192_2_sa_assign.c O3 runtime:  425 RL runtime:  410 improvement: 1.04X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s1_128_sub_0.c O3 runtime:  114 RL runtime:  112 improvement: 1.02X improvement geomean so far: 1.24X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12n_16384_2_2_in1_result1.c O3 runtime:  2002 RL runtime:  896 improvement: 2.23X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s1_512_sub_2.c O3 runtime:  112 RL runtime:  115 improvement: 0.97X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12nn_2048_2_short_a_assign1.c O3 runtime:  1467 RL runtime:  1466 improvement: 1.0X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_128_256_4_0.c O3 runtime:  848 RL runtime:  540 improvement: 1.57X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s15_256_16384_add_1.c O3 runtime:  270 RL runtime:  260 improvement: 1.04X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9n_64_16384_3_z.c O3 runtime:  580 RL runtime:  304 improvement: 1.91X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_128_64_8_0.c O3 runtime:  873 RL runtime:  556 improvement: 1.57X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s8n_512_sub_5.c O3 runtime:  66 RL runtime:  66 improvement: 1.0X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s2_1024_2_4_x_output.c O3 runtime:  689 RL runtime:  168 improvement: 4.1X improvement geomean so far: 1.27X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12_1024_2_sa_result.c O3 runtime:  350 RL runtime:  390 improvement: 0.9X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s18_16384_i1_dst.c O3 runtime:  454 RL runtime:  469 improvement: 0.97X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12nn_64_2_input1_result1.c O3 runtime:  1057 RL runtime:  1056 improvement: 1.0X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9n_2048_512_4_x.c O3 runtime:  639 RL runtime:  283 improvement: 2.26X improvement geomean so far: 1.27X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12_16384_short_a_assign.c O3 runtime:  276 RL runtime:  274 improvement: 1.01X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9_256_16384_4.c O3 runtime:  370 RL runtime:  368 improvement: 1.01X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_512_64_8_1.c O3 runtime:  868 RL runtime:  544 improvement: 1.6X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s18_16384_i1_result.c O3 runtime:  468 RL runtime:  457 improvement: 1.02X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s8n_16384_add_4.c O3 runtime:  99 RL runtime:  96 improvement: 1.03X improvement geomean so far: 1.26X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s9_256_2048_3.c O3 runtime:  143 RL runtime:  143 improvement: 1.0X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s6_128_sub_5.c O3 runtime:  134 RL runtime:  140 improvement: 0.96X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_4096_8192_8_4.c O3 runtime:  872 RL runtime:  699 improvement: 1.25X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_1024_8192_4_4.c O3 runtime:  885 RL runtime:  694 improvement: 1.28X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s12n_2048_in1_out1.c O3 runtime:  394 RL runtime:  363 improvement: 1.09X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m Executing: python ./preprocess/cparser.py --clang-path /home/bdmanley/583project/llvm-project/build/lib/libclang.so.14.0.0git --max-leaves 320 --no-hash-paths TRUE --file-path ./new_scramble_vfif_trained_rollout_garbage_22639/aux_AST_embedding_code.c
+== Status ==
+Memory usage on this node: 5.5/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 0/8 CPUs, 0/0 GPUs, 0.0/4.98 GiB heap, 0.0/1.71 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_rollout
+Number of trials: 1 (1 ERROR)
++-------------------+----------+-------+
+| Trial name        | status   | loc   |
+|-------------------+----------+-------|
+| PPO_autovec_00000 | ERROR    |       |
++-------------------+----------+-------+
+Number of errored trials: 1
++-------------------+--------------+--------------------------------------------------------------------------------------------------------+
+| Trial name        |   # failures | error file                                                                                             |
+|-------------------+--------------+--------------------------------------------------------------------------------------------------------|
+| PPO_autovec_00000 |            1 | /home/bdmanley/ray_results/neurovectorizer_rollout/PPO_autovec_0_2021-12-11_16-41-58nr_wnxe7/error.txt |
++-------------------+--------------+--------------------------------------------------------------------------------------------------------+
+
+== Status ==
+Memory usage on this node: 5.5/12.4 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 0/8 CPUs, 0/0 GPUs, 0.0/4.98 GiB heap, 0.0/1.71 GiB objects
+Result logdir: /home/bdmanley/ray_results/neurovectorizer_rollout
+Number of trials: 1 (1 ERROR)
++-------------------+----------+-------+
+| Trial name        | status   | loc   |
+|-------------------+----------+-------|
+| PPO_autovec_00000 | ERROR    |       |
++-------------------+----------+-------+
+Number of errored trials: 1
++-------------------+--------------+--------------------------------------------------------------------------------------------------------+
+| Trial name        |   # failures | error file                                                                                             |
+|-------------------+--------------+--------------------------------------------------------------------------------------------------------|
+| PPO_autovec_00000 |            1 | /home/bdmanley/ray_results/neurovectorizer_rollout/PPO_autovec_0_2021-12-11_16-41-58nr_wnxe7/error.txt |
++-------------------+--------------+--------------------------------------------------------------------------------------------------------+
+
+[2m[36m(pid=22640)[0m E1211 16:54:29.979243 22664 task_manager.cc:254] Task failed: IOError: 2: user code caused exit: Type=ACTOR_TASK, Language=PYTHON, function_descriptor={type=PythonFunctionDescriptor, module_name=ray.rllib.evaluation.rollout_worker, class_name=RolloutWorker, function_name=sample, function_hash=}, task_id=95d4bd5a3dbd029b2512146c0100, job_id=0100, num_args=0, num_returns=2, actor_task_spec={actor_id=2512146c0100, actor_caller_id=ffffffffffffffff45b95b1c0100, actor_counter=3}
+[2m[36m(pid=22640)[0m E1211 16:54:29.987087 22640 task_manager.cc:254] Task failed: IOError: sent task to dead actor: Type=ACTOR_TASK, Language=PYTHON, function_descriptor={type=PythonFunctionDescriptor, module_name=ray.rllib.evaluation.rollout_worker, class_name=RolloutWorker, function_name=stop, function_hash=}, task_id=3dd37f48679994e22512146c0100, job_id=0100, num_args=0, num_returns=2, actor_task_spec={actor_id=2512146c0100, actor_caller_id=ffffffffffffffff45b95b1c0100, actor_counter=4}
+[2m[36m(pid=22639)[0m 2021-12-11 16:54:29,974	ERROR worker.py:426 -- SystemExit was raised from the worker
+[2m[36m(pid=22639)[0m Traceback (most recent call last):
+[2m[36m(pid=22639)[0m   File "python/ray/_raylet.pyx", line 512, in ray._raylet.task_execution_handler
+[2m[36m(pid=22639)[0m   File "python/ray/_raylet.pyx", line 409, in ray._raylet.execute_task
+[2m[36m(pid=22639)[0m   File "python/ray/_raylet.pyx", line 449, in ray._raylet.execute_task
+[2m[36m(pid=22639)[0m   File "python/ray/_raylet.pyx", line 450, in ray._raylet.execute_task
+[2m[36m(pid=22639)[0m   File "python/ray/_raylet.pyx", line 452, in ray._raylet.execute_task
+[2m[36m(pid=22639)[0m   File "python/ray/_raylet.pyx", line 407, in ray._raylet.execute_task.function_executor
+[2m[36m(pid=22639)[0m   File "/home/bdmanley/anaconda3/lib/python3.7/site-packages/ray/function_manager.py", line 560, in actor_method_executor
+[2m[36m(pid=22639)[0m     method_returns = method(actor, *args, **kwargs)
+[2m[36m(pid=22639)[0m   File "/home/bdmanley/anaconda3/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 492, in sample
+[2m[36m(pid=22639)[0m     batches = [self.input_reader.next()]
+[2m[36m(pid=22639)[0m   File "/home/bdmanley/anaconda3/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 53, in next
+[2m[36m(pid=22639)[0m     batches = [self.get_data()]
+[2m[36m(pid=22639)[0m   File "/home/bdmanley/anaconda3/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 96, in get_data
+[2m[36m(pid=22639)[0m     item = next(self.rollout_provider)
+[2m[36m(pid=22639)[0m   File "/home/bdmanley/anaconda3/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 367, in _env_runner
+[2m[36m(pid=22639)[0m     base_env.send_actions(actions_to_send)
+[2m[36m(pid=22639)[0m   File "/home/bdmanley/anaconda3/lib/python3.7/site-packages/ray/rllib/env/base_env.py", line 328, in send_actions
+[2m[36m(pid=22639)[0m     self.vector_env.vector_step(action_vector)
+[2m[36m(pid=22639)[0m   File "/home/bdmanley/anaconda3/lib/python3.7/site-packages/ray/rllib/env/vector_env.py", line 106, in vector_step
+[2m[36m(pid=22639)[0m     obs, r, done, info = self.envs[i].step(actions[i])
+[2m[36m(pid=22639)[0m   File "/home/bdmanley/583project/working/583-neuro-vectorizer/envs/neurovec.py", line 278, in step
+[2m[36m(pid=22639)[0m     exit(0) # finished all programs!
+[2m[36m(pid=22639)[0m   File "/home/bdmanley/anaconda3/lib/python3.7/_sitebuiltins.py", line 26, in __call__
+[2m[36m(pid=22639)[0m     raise SystemExit(code)
+[2m[36m(pid=22639)[0m SystemExit: 0
+[2m[36m(pid=22639)[0m benchmark:  ./new_scramble_vfif_trained_rollout_garbage_22639/s16_512_512_8_1.c O3 runtime:  844 RL runtime:  540 improvement: 1.56X improvement geomean so far: 1.25X
+[2m[36m(pid=22639)[0m exiting after inferencing all programs
