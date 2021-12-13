@@ -55,42 +55,110 @@ def init_runtimes_dict(files,num_loops,VF_len,IF_len):
             runtimes[f][l] = copy.deepcopy(one_program_runtimes)
     return runtimes
 
-def get_bruteforce_runtimes(rundir,files,vec_action_meaning,
-                            interleave_action_meaning):
+# def get_bruteforce_runtimes(rundir,files,vec_action_meaning,
+#                             interleave_action_meaning):
+#     ''' get all runtimes with bruteforce seach and -O3 
+#     assuming a single loop per file!'''
+#     opt_runtimes = {}
+#     opt_factors = {}
+#     all_program_runtimes = {}
+#     one_program_runtimes = [[0]*len(interleave_action_meaning) 
+#                             for vf in range(len(vec_action_meaning))]
+#     full_path_header = os.path.join(rundir,'header.c')
+#     for filename in files:
+#         opt_runtime = 1e+9
+#         opt_factor = (1,1)
+#         for i,VF in enumerate(vec_action_meaning):
+#             for j,IF in enumerate(interleave_action_meaning):
+#                 rm_cmd = 'rm ' + filename[:-1]+'o '
+#                 if os.path.exists(filename[:-1]+'o'):
+#                     os.system(rm_cmd)
+#                 cmd1 = 'timeout 4s ' + os.environ['CLANG_BIN_PATH'] + ' -O3 -lm '+full_path_header \
+#                 +' ' +str(filename)+' -Rpass=loop-vectorize -mllvm -force-vector-width=' \
+#                 +str(VF)+' -mllvm -force-vector-interleave='+str(IF) \
+#                 +' -o ' +filename[:-1]+'o'
+#                 os.system(cmd1)
+#                 cmd2 = filename[:-1]+'o '
+#                 try:
+#                     runtime=int(subprocess.Popen(cmd2, executable='/bin/bash', shell=True,
+#                             stdout=subprocess.PIPE).stdout.read())
+#                 except:
+#                     runtime = None #None if fails
+#                     logger.warning('Could not compile ' + filename + 
+#                                    ' due to time out. Setting runtime to: '+str(runtime)+'.' +
+#                                    ' Consider increasing the timeout, which is set to 4 seconds.')
+#                 one_program_runtimes[i][j] = runtime
+#                 if runtime is not None and runtime<opt_runtime:
+#                     opt_runtime = runtime
+#                     opt_factor = (VF,IF)
+#         opt_runtimes[filename] = opt_runtime
+#         opt_factors[filename] = opt_factor
+#         all_program_runtimes[filename]=copy.deepcopy(one_program_runtimes)
+#     data={'opt_runtimes':opt_runtimes,'opt_factors':opt_factors,'all_program_runtimes':all_program_runtimes}
+#     output = open(os.path.join(rundir,'bruteforce_runtimes.pkl'), 'wb')
+#     pickle.dump(data, output)
+#     output.close()
+#     exit(0)
+
+def get_bruteforce_runtimes(rundir,files, slp_opt, flag_candidates):
     ''' get all runtimes with bruteforce seach and -O3 
     assuming a single loop per file!'''
     opt_runtimes = {}
     opt_factors = {}
     all_program_runtimes = {}
-    one_program_runtimes = [[0]*len(interleave_action_meaning) 
-                            for vf in range(len(vec_action_meaning))]
+    one_program_runtimes = [0]*len(flag_candidates)
     full_path_header = os.path.join(rundir,'header.c')
     for filename in files:
         opt_runtime = 1e+9
-        opt_factor = (1,1)
-        for i,VF in enumerate(vec_action_meaning):
-            for j,IF in enumerate(interleave_action_meaning):
+        opt_factor = None
+        for i, flag_candidate in enumerate(flag_candidates):
+            # if os.path.exists(filename[:-1]+'o'):
+            #     os.system(rm_cmd)
+            #     cmd1 = 'timeout 4s ' + os.environ['CLANG_BIN_PATH'] + ' -O3 -lm '+full_path_header \
+            #     +' ' +str(filename)+' -vectorize-slp -' + str(slp_opt) + ' ' + str(flag_candidate)\
+            #     +' -o ' +filename[:-1]+'o'
+            #     os.system(cmd1)
+            #     cmd2 = filename[:-1]+'o '
+
+            # clang -emit-llvm -fno-vectorize -c ${1}.c -o ${1}.bc
+            # opt -o ${1}.slp.bc  --slp-vectorizer --slp-max-reg-size 20 -time-passes  < ${1}.bc > /dev/null
+            # clang -fno-vectorize -lm header.c ${1}.slp.bc -o ${1}_slp
+
+            if os.path.exists(filename[:-1]+'o'):
                 rm_cmd = 'rm ' + filename[:-1]+'o '
-                if os.path.exists(filename[:-1]+'o'):
-                    os.system(rm_cmd)
-                cmd1 = 'timeout 4s ' + os.environ['CLANG_BIN_PATH'] + ' -O3 -lm '+full_path_header \
-                +' ' +str(filename)+' -Rpass=loop-vectorize -mllvm -force-vector-width=' \
-                +str(VF)+' -mllvm -force-vector-interleave='+str(IF) \
-                +' -o ' +filename[:-1]+'o'
-                os.system(cmd1)
-                cmd2 = filename[:-1]+'o '
-                try:
-                    runtime=int(subprocess.Popen(cmd2, executable='/bin/bash', shell=True,
-                            stdout=subprocess.PIPE).stdout.read())
-                except:
-                    runtime = None #None if fails
-                    logger.warning('Could not compile ' + filename + 
-                                   ' due to time out. Setting runtime to: '+str(runtime)+'.' +
-                                   ' Consider increasing the timeout, which is set to 4 seconds.')
-                one_program_runtimes[i][j] = runtime
-                if runtime is not None and runtime<opt_runtime:
-                    opt_runtime = runtime
-                    opt_factor = (VF,IF)
+                os.system(rm_cmd)
+                
+            filename_prefix = filename[:-2]
+
+            clangpath = os.environ['CLANG_BIN_PATH']
+            cmd1 = f'timeout 4s {clangpath} -emit-llvm -fno-vectorize -fno-slp-vectorize -c {filename_prefix}.c -o {filename_prefix}.bc'
+            print(cmd1)
+            if os.system(cmd1) != 0:
+                exit(1)
+
+            ##slp-max-reg-size 20 -time-passes
+            cmd2 = f'timeout 4s opt -o {filename_prefix}.slp.bc -slp-vectorizer -slp-min-reg-size={flag_candidate} {slp_opt}={flag_candidate} < {filename_prefix}.bc > /dev/null'
+            print(cmd2)
+            if os.system(cmd2) != 0:
+                exit(1)
+
+            cmd3 = f'timeout 4s -fno-vectorize clang -lm {full_path_header} {filename_prefix}.slp.bc -o {filename_prefix}_slp'
+            if os.system(cmd3) != 0:
+                exit(1)
+
+            cmd4 = f'{filename_prefix}_slp'                
+            try:
+                runtime=int(subprocess.Popen(cmd4, executable='/bin/bash', shell=True,
+                        stdout=subprocess.PIPE).stdout.read())
+            except:
+                runtime = None #None if fails
+                logger.warning('Could not compile ' + filename + 
+                                ' due to time out. Setting runtime to: '+str(runtime)+'.' +
+                                ' Consider increasing the timeout, which is set to 4 seconds.')
+            one_program_runtimes[i] = runtime
+            if runtime is not None and runtime<opt_runtime:
+                opt_runtime = runtime
+                opt_factor = flag_candidate
         opt_runtimes[filename] = opt_runtime
         opt_factors[filename] = opt_factor
         all_program_runtimes[filename]=copy.deepcopy(one_program_runtimes)
