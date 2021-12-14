@@ -70,7 +70,7 @@ def get_bruteforce_unroll_runtimes(rundir,files,unroll_action_meaning):
                 rm_cmd = 'rm ' + filename[:-1]+'o '
                 if os.path.exists(filename[:-1]+'o'):
                     os.system(rm_cmd)
-                cmd1 = 'pwd && timeout 4s ' + os.environ['CLANG_BIN_PATH'] + ' -O3 -lm '+full_path_header \
+                cmd1 = 'timeout 4s ' + os.environ['CLANG_BIN_PATH'] + ' -O3 -lm '+full_path_header \
                 +' ' +str(filename)+' -mllvm -unroll-count=' + str(unroll) \
                 +' -o ' +filename[:-1]+'o'
                 os.system(cmd1)
@@ -85,18 +85,13 @@ def get_bruteforce_unroll_runtimes(rundir,files,unroll_action_meaning):
                                    ' due to time out. Setting runtime to: '+str(runtime)+'.' +
                                    ' Consider increasing the timeout, which is set to 4 seconds.')
                 one_program_runtimes[i] = runtime
+                print(runtime)
                 if runtime is not None and runtime<opt_runtime:
                     opt_runtime = runtime
                     opt_factor = unroll
         opt_runtimes[filename] = opt_runtime
         opt_factors[filename] = opt_factor
         all_program_runtimes[filename]=copy.deepcopy(one_program_runtimes)
-        # TEMP TEMP
-        data={'opt_runtimes':opt_runtimes,'opt_factors':opt_factors,'all_program_runtimes':all_program_runtimes}
-        output = open(os.path.join(rundir, 'stupid_runtimes.pkl'), 'wb')
-        pickle.dump(data, output)
-        output.close()
-        exit(0)
     data={'opt_runtimes':opt_runtimes,'opt_factors':opt_factors,'all_program_runtimes':all_program_runtimes}
     output = open(os.path.join(rundir,'bruteforce_runtimes.pkl'), 'wb')
     pickle.dump(data, output)
