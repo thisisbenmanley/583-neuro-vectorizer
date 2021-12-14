@@ -40,7 +40,7 @@ from config import Config
 from my_model import Code2VecModel
 from path_context_reader import EstimatorAction
 
-from utility import get_bruteforce_runtimes, get_O3_runtimes, get_snapshot_from_code, get_runtime, get_vectorized_codes, init_runtimes_dict, get_encodings_from_local, MAX_LEAF_NODES, pragma_line
+from utility import get_bruteforce_unroll_runtimes, get_bruteforce_runtimes, get_O3_runtimes, get_snapshot_from_code, get_runtime, get_vectorized_codes, init_runtimes_dict, get_encodings_from_local, MAX_LEAF_NODES, pragma_line
 
 logger = logging.getLogger(__name__)
 
@@ -129,7 +129,9 @@ class NeuroVectorizerEnv(gym.Env):
         print("BOUTA BRUTEFORCE - self.new_rundir = " + self.new_rundir)
         print("RUNNING PWD")
         os.system("pwd")
-        get_bruteforce_runtimes(self.new_rundir, self.orig_train_files, self.vec_action_meaning, self.interleave_action_meaning)
+        #get_bruteforce_runtimes(self.new_rundir, self.orig_train_files, self.vec_action_meaning, self.interleave_action_meaning)
+        unroll_action_meaning = [1,2,4,8,16,32,64]
+        get_bruteforce_unroll_runtimes(self.new_rundir, self.orig_train_files, unroll_action_meaning)
 
         # copy testfiles
         self.new_testfiles = list(self.orig_train_files)
