@@ -132,6 +132,11 @@ class NeuroVectorizerEnv(gym.Env):
         #get_bruteforce_runtimes(self.new_rundir, self.orig_train_files, self.vec_action_meaning, self.interleave_action_meaning)
         unroll_action_meaning = [1,2,4,8,16,32,64]
         get_bruteforce_unroll_runtimes(self.new_rundir, self.orig_train_files, unroll_action_meaning)
+        # get_bruteforce_runtimes(self.new_rundir, self.orig_train_files, self.vec_action_meaning, self.interleave_action_meaning)
+        # get_bruteforce_runtimes(self.new_rundir, self.orig_train_files, '-slp-vectorize-hor', ["true", "false"])
+        # get_bruteforce_runtimes(self.new_rundir, self.orig_train_files, '-slp-vectorize-hor-store', ["true", "false"])
+        # get_bruteforce_runtimes(self.new_rundir, self.orig_train_files, '-slp-min-reg-size', [32, 64, 128, 256, 512])
+        #get_bruteforce_runtimes(self.new_rundir, self.orig_train_files, '-slp-max-reg-size', [64, 128, 256])
 
         # copy testfiles
         self.new_testfiles = list(self.orig_train_files)

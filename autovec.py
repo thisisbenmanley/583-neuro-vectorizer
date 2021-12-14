@@ -54,7 +54,7 @@ tune.run("PPO",
             "num_gpus": 0,
             "model":{'fcnet_hiddens':[128,128]},
             "num_workers": 1,
-            "env_config":{'dirpath':'./training_data','new_rundir':'./new_garbage'}
+            "env_config":{'dirpath':'/home/kfaryabh/projectdir/583-neuro-vectorizer/tests','new_rundir':'./new_bruteforce_garbage'}
             },
         loggers=[TBXLogger]
 )
