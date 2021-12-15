@@ -45,6 +45,8 @@ TEST_SHELL_COMMAND_TIMEOUT = os.environ['TEST_SHELL_COMMAND_TIMEOUT']
 # pragma line injected for each loop
 pragma_line = '#pragma clang loop vectorize_width({0}) interleave_count({1})\n'
 
+# Credit for the following class given to StackOverflow user "Realz Slaw"
+# https://stackoverflow.com/questions/13607391/subprocess-memory-usage-in-python
 class ProcessTimer:
         def __init__(self,command):
           self.command = command
